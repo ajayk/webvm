@@ -1,11 +1,7 @@
 FROM --platform=linux/amd64 cgr.dev/chainguard/wolfi-base:latest
 RUN apk update
 RUN apk add gcc \
-	python3 vim unzip ruby nodejs \
-	fakeroot dbus base whiptail hexedit \
-	patch wamerican ucf manpages \
-	file luajit make lua50 dialog curl \
-	less cowsay netcat-openbsd
+	less cowsay vim
 RUN useradd -m user && echo "user:password" | chpasswd
 COPY --chown=user:user ./examples /home/user/examples
 RUN chmod -R +x  /home/user/examples/lua
