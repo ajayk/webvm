@@ -1,7 +1,7 @@
 FROM --platform=linux/amd64 cgr.dev/chainguard/wolfi-base:latest
 RUN apk update
 RUN apk add gcc \
-	less cowsay vim busybox
+	less cowsay vim busybox shadow
 RUN useradd -m user && echo "user:password" | chpasswd
 COPY --chown=user:user ./examples /home/user/examples
 RUN chmod -R +x  /home/user/examples/lua
